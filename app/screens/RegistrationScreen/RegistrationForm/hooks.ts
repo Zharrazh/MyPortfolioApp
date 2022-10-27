@@ -1,11 +1,10 @@
 import {yupResolver} from '@hookform/resolvers/yup';
-import {AnyObjectShape} from '@utils/validation/types';
 import * as yup from 'yup';
 import {useUncontrolledForm} from '../../../hooks/useUncontrolledForm';
 import {IRegistrationFormValues} from './types';
 
-export const validationSchema = yup
-  .object<AnyObjectShape<IRegistrationFormValues>>({
+export const validationSchema: yup.SchemaOf<IRegistrationFormValues> = yup
+  .object({
     email: yup
       .string()
       .email('Incorrect Email')
